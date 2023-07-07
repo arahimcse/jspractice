@@ -26,3 +26,7 @@ class Model extends Car{
 const car1 = new Model("BMW", 2014);
 
 document.getElementById("demo").innerHTML = car1.show();
+
+
+
+// JavaScript static method can call only by "class name" e.g Car.hello(). Here hello() is a static method. 
