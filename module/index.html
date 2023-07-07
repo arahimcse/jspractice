@@ -18,7 +18,28 @@
         =
         <input type="text" id="result">
     
+    <script>
+        /* JavaScript promise code and produced results. JavaScript Promise is object that produced code and wait for sometime to consuming the code */ 
+//JavaScrip Producing code
+const myPro = new Promise((myResolve, myReject)=>{
+    let x;
+     x=5;
+    if(x == 5)
+    {
+        myResolve('Ok')
+    } else
+    {
+        myReject('Error');
+    }
+});
 
+//JavaScript Consume code
+
+myPro.then(
+    (value)=>{console.log(value)},
+    (value)=>{console.log(value)}
+)
+    </script>
     <script type="module" src="./main.js"></script>
 </body>
 </html>
