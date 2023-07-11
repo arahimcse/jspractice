@@ -72,22 +72,42 @@
  * link@2 https://jsonplaceholder.typicode.com/
  */
 
-const myPromise = new Promise((myResolve, myReject) =>{
-    const req = new XMLHttpRequest();
-    req.open('GET', 'myCar.html');
-    req.onload = () =>{
-        if(req.status == 200)
-        {
-            myResolve(req.response);
-        } else
-        {
-            myReject("File not Found " + req.status);
-        }
-    }
-    req.send();
-})
+// const myPromise = new Promise((myResolve, myReject) =>{
+//     const req = new XMLHttpRequest();
+//     req.open('GET', 'myCar.html');
+//     req.onload = () =>{
+//         if(req.status == 200)
+//         {
+//             myResolve(req.response);
+//         } else
+//         {
+//             myReject("File not Found " + req.status);
+//         }
+//     }
+//     req.send();
+// })
 
-myPromise.then(
-    (value) => {console.log(value)},
-    (error) => {console.log(error)}
-)
+// myPromise.then(
+//     (value) => {console.log(value)},
+//     (error) => {console.log(error)}
+// )
+
+/**
+ * 
+ * Asynchronous is a non-blocking architecture, so the execution of one task isn’t dependent on another. Tasks can run simultaneously. Synchronous is a blocking architecture, so the execution of each operation is dependent on the completion of the one before it. Each task requires an answer before moving on to the next iteration.
+
+The differences between asynchronous and synchronous include:
+
+Async is multi-thread, which means operations or programs can run in parallel. Sync is single-thread, so only one operation or program will run at a time.
+Async is non-blocking, which means it will send multiple requests to a server. Sync is blocking — it will only send the server one request at a time and will wait for that request to be answered by the server.
+Async increases throughput because multiple operations can run at the same time. Sync is slower and more methodical.
+Differences aside, asynchronous and synchronous methods both offer advantages, but for different stakeholders: Async for users and sync for developers.
+ */
+
+
+async function myfunction()
+{
+    return 'hello';
+}
+
+console.log(myfunction());
