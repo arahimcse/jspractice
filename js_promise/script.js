@@ -105,9 +105,28 @@ Differences aside, asynchronous and synchronous methods both offer advantages, b
  */
 
 
-async function myfunction()
-{
-    return 'hello';
-}
+// async function myfunction()
+// {
+//     return 'hello';
+// }
 
-console.log(myfunction());
+// console.log(myfunction()); 
+
+/**
+ * This examople is for synchronous way of javascript programming
+ * JavaScript code running processed
+ * 1. JavaScript code conver into machine code that understand by JavaScript engine. [Engine]
+ * 2. Browser has call Stack, console, Web APIs, call queue/ Task Queue
+ */
+
+function processingOrder()
+{
+    console.log("processing order for customer 1");
+    const currentDate = new Date().getTime();
+    while(currentDate + 8000 >= new Date().getTime()); //block the application for 8 seconds. async await resolve the problem
+
+    console.log('processed order for customer 1')
+}
+console.log('Take order for Customer 1');
+processingOrder();
+console.log("Completer Order for customer 1")
