@@ -367,8 +367,42 @@ Differences aside, asynchronous and synchronous methods both offer advantages, b
  * asynchronous function alway return a promis and execute via the web api
  */
 
-async function test()
+// async function test()
+// {
+//     return 'hello'
+// }
+// console.log(test())
+
+
+async function fetchUserdata(userId)
 {
-    return 'hello'
+    try
+    {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+        if(!response.ok)
+        {
+            throw new Error('Failed to fetch data')
+        }
+        const userData =await response.json();
+        return userData
+    } catch(err)
+    {
+        console.error(err)
+    }
+
 }
-console.log(test())
+
+async function displayUserdata(userId)
+{
+ const user = await fetchUserdata(userId)
+ console.log(user)
+}
+
+displayUserdata(1);
+
+console.log('hello')
+
+/*
+Best example for async/await
+https://www.freecodecamp.org/news/javascript-async-await-tutorial-learn-callbacks-promises-async-await-by-making-icecream/ 
+*/
