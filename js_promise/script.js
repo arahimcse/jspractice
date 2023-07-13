@@ -247,27 +247,72 @@ Differences aside, asynchronous and synchronous methods both offer advantages, b
 
 /**
  * Create promise and used promise
+ * This example isn't enough for promis because promise skip an block of code that take some time to execute. e.g load data from databases, fetch data from api, or async function like setTimeout, interval, etc. that's means code not delay anywhere until end of scaning of code.
  */
 
-const hasMeeting = false;
+// const hasMeeting = false;
 
-const myPromise = new Promise((myResolve, myReject) =>{
-    if(!hasMeeting)
-    {
-        const meeting = {
-            name:"Technical Training Decision",
-            location:"123 Maridien Hotel",
-            time:"10:00AM"
-        }
-        myResolve(meeting)
-    } else 
-    {
-        myReject(new Error("The meeting already scheduled"))
-    }
+// const myPromise = new Promise((myResolve, myReject) =>{
+//     if(!hasMeeting)
+//     {
+//         const meeting = {
+//             name:"Technical Training Decision",
+//             location:"123 Maridien Hotel",
+//             time:"10:00AM"
+//         }
+//         myResolve(meeting)
+//     } else 
+//     {
+//         myReject(new Error("The meeting already scheduled"))
+//     }
+// })
+
+// myPromise
+// .then((value)=>{console.log(value)})
+// .catch((error)=>{console.log(error)})
+
+
+/**
+ * Promise that depend on other promise
+ * Here two promise are used promise one return a result taht used in two promise
+ */
+
+// const hasMeeting = false;
+
+// const myPromise = new Promise((myResolve, myReject) =>{
+//     if(!hasMeeting)
+//     {
+//         const meetingDetails = {
+//             name:"Technical Training Decision",
+//             location:"123 Maridien Hotel",
+//             time:"10:00AM"
+//         }
+//         myResolve(meetingDetails)
+//     } else 
+//     {
+//         myReject(new Error("The meeting already scheduled"))
+//     }
+// })
+
+// const addtoCalendar = (x) => {
+//     const calendar = `${x.name} meeting has been scheduled on ${x.location} at ${x.time} `
+//     return Promise.resolve(calendar)
+// }
+// myPromise
+// .then(addtoCalendar)
+// .then((value)=>{console.log(value)})
+// .catch((error)=>{console.log(error)})
+
+
+
+/**
+ * Run multiple promise concarruntly
+ */
+
+const promise1 = Promise.resolve('promise 1')
+const promise2 = new Promise((resolve, reject) =>{
+    setTimeout(()=> resolve('promise2'),3000)
 })
 
-//Generate promise 
-
-myPromise
-.then((value)=>{console.log(value)})
-.catch((error)=>{console.log(error)})
+Promise.all([promise1, promise2])
+.then((value)=>console.log(value))
