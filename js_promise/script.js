@@ -307,12 +307,68 @@ Differences aside, asynchronous and synchronous methods both offer advantages, b
 
 /**
  * Run multiple promise concarruntly
+ * ###Output###
+ * [ 'promise 1', 'promise2' ]
  */
 
-const promise1 = Promise.resolve('promise 1')
-const promise2 = new Promise((resolve, reject) =>{
-    setTimeout(()=> resolve('promise2'),3000)
-})
+// const promise1 = Promise.resolve('promise 1')
+// const promise2 = new Promise((resolve, reject) =>{
+//     setTimeout(()=> resolve('promise2'),3000)
+// })
 
-Promise.all([promise1, promise2])
-.then((value)=>console.log(value))
+// Promise.all([promise1, promise2])
+//         .then((value)=>console.log(value))   
+
+
+/**
+ * promise race. means there have multiple promise but run one that is fast execute.
+ * ###Output###
+ * promise 1
+ */
+
+// const promise1 = Promise.resolve('promise 1')
+// const promise2 = new Promise((resolve, reject) =>{
+//     setTimeout(()=> resolve('promise2'),3000)
+// })
+
+// Promise.race([promise1, promise2])
+//         .then((value)=>console.log(value))   
+
+// console.log('hello abdur rahim')
+
+/**
+ * promise race. means there have multiple promise but run one that is fast execute.
+ * Promise means  asynchronous function. JavaScript will skip this  tipe code  and got to 
+ * next line for fast running 
+* ###Output###
+ * hello abdur rahim
+ * promise 1
+ */
+
+// const promise1 = Promise.resolve('promise 1')
+// const promise2 = new Promise((resolve, reject) =>{
+//     setTimeout(()=> resolve('promise2'),3000)
+// })
+
+// Promise.race([promise1, promise2])
+//         .then((value)=>console.log(value))   
+
+// console.log('hello abdur rahim')
+
+
+/**
+ * JavaScript asynchronous function returen a promis that skip a function/block of code. that need to execute sometime like 3 seconds, or fixed amout time
+ * as single thread programming language Javascript hand over the aschronous function to the web api, and even loop run time enviroment. 
+ * 
+ * 
+ * ###Output###
+ * Promise { 'hello' }
+ * 
+ * asynchronous function alway return a promis and execute via the web api
+ */
+
+async function test()
+{
+    return 'hello'
+}
+console.log(test())
