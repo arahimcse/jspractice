@@ -27,11 +27,21 @@ const plainHtml = `<a class="nav-link" href="#">Link</a>`
 
 const classBind = 'rahim'
 const isDisable = true
+
+
+/**
+ * Dynamically Binding Multiple Attributes​
+ * If you have a JavaScript object representing multiple attributes that looks like this:
+ */
+
+const container = {id:'rahim', class:'arahim'}
+
+
 </script>
 
 <template>
 
-<div class="container mt-5">
+<div class="container mt-5" v-bind="container">
   <div class="row">
     <div class="col-sm-4">
       <h2>About Me</h2>
