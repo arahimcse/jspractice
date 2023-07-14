@@ -36,6 +36,10 @@ const isDisable = true
 
 const container = {id:'rahim', class:'arahim'}
 
+/**
+ * v-for directory
+ */
+import {list} from '../assets/js/for'
 
 </script>
 
@@ -63,6 +67,8 @@ const container = {id:'rahim', class:'arahim'}
         <li class="nav-item" :class="classBind">
           <a class="nav-link disabled" :disabled="isDisable" href="#">Disabled</a>
         </li>
+
+        <a href="" v-for="item in list">{{ item }}</a>
       </ul>
       <hr class="d-sm-none">
     </div>
