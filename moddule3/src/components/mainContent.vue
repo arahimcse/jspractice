@@ -10,11 +10,22 @@ const plainHtml = `<a class="nav-link" href="#">Link</a>`
 
 
 /**
- * Attribute Bindings
- * Mustaches cannot be used inside HTML attributes. Instead, use a v-bind directive
+ * 
+ * Attribute Bindings​
+ * Mustaches cannot be used inside HTML attributes. Instead, use a v-bind directive:
+ * 
+ * <div v-bind:id="dynamicId"></div>
+ * The v-bind directive instructs Vue to keep the element's id attribute in sync with the component's dynamicId property. If the bound value is null or undefined, then the attribute will be removed from the rendered element.
+ * 
+ * 
+ * Shorthand​
+ * Because v-bind is so commonly used, it has a dedicated shorthand syntax:
+ * 
+ * <div :id="dynamicId"></div>
+ * For the rest of the guide, we will be using the shorthand syntax in code examples, as that's the most common usage for Vue developers.
  */
+
 const classBind = 'rahim'
-const imageSrc = "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
 const isDisable = true
 </script>
 
@@ -45,7 +56,6 @@ const isDisable = true
       </ul>
       <hr class="d-sm-none">
     </div>
-    <img :src="imageSrc" alt="">
     <div class="col-sm-8">
       <h2>TITLE HEADING</h2>
       <h5>Title description, Dec 7, 2020</h5>
