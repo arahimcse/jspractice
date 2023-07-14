@@ -41,6 +41,17 @@ const container = {id:'rahim', class:'arahim'}
  */
 import {list} from '../assets/js/for'
 
+/**
+ * v-on directories
+ * 
+ * <a v-on:click="doSomething"> ... </a>
+ * 
+ * <!-- shorthand -->
+ * <a @click="doSomething"> ... </a>
+ */
+
+import { clickEvent } from '../assets/js/ven'
+
 </script>
 
 <template>
@@ -69,6 +80,8 @@ import {list} from '../assets/js/for'
         </li>
 
         <a href="" v-for="item in list">{{ item }}</a>
+
+        <a href="" @click="clickEvent">dosomething</a>
       </ul>
       <hr class="d-sm-none">
     </div>
