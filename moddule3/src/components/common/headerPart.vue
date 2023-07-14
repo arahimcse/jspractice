@@ -1,12 +1,17 @@
 <script setup>
-const message = "welcome to my header"
+/**
+ * template syntax
+ * text binding and mustache
+ */
+    const title = "My first Web application"
+    const des = 'Resize this responsive page to see the effect!'
 </script>
 
 <template>
 
 <div class="p-5 bg-primary text-white text-center">
-  <h1>My First Bootstrap 5 Page</h1>
-  <p>Resize this responsive page to see the effect!</p> 
+  <h1>{{ title }}</h1>
+  <p v-text="des"></p> 
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">

@@ -1,4 +1,12 @@
 <script setup>
+/**
+ * Raw HTML
+ * 
+ * {{ }} display plain data in template
+ * v-html used in tag attributes and display data as a html 
+ */
+const vHtml  = `<a class="nav-link active" href="#">Active</a>`
+const plainHtml = `<a class="nav-link" href="#">Link</a>`
 
 </script>
 
@@ -14,11 +22,11 @@
       <h3 class="mt-4">Some Links</h3>
       <p>Lorem ipsum dolor sit ame.</p>
       <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
+        <li class="nav-item" v-html="vHtml">
+            
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          {{ plainHtml }}
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
