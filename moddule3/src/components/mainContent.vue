@@ -8,6 +8,14 @@
 const vHtml  = `<a class="nav-link active" href="#">Active</a>`
 const plainHtml = `<a class="nav-link" href="#">Link</a>`
 
+
+/**
+ * Attribute Bindings
+ * Mustaches cannot be used inside HTML attributes. Instead, use a v-bind directive
+ */
+const classBind = 'rahim'
+const imageSrc = "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
+const isDisable = true
 </script>
 
 <template>
@@ -31,12 +39,13 @@ const plainHtml = `<a class="nav-link" href="#">Link</a>`
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+        <li class="nav-item" :class="classBind">
+          <a class="nav-link disabled" :disabled="isDisable" href="#">Disabled</a>
         </li>
       </ul>
       <hr class="d-sm-none">
     </div>
+    <img :src="imageSrc" alt="">
     <div class="col-sm-8">
       <h2>TITLE HEADING</h2>
       <h5>Title description, Dec 7, 2020</h5>
