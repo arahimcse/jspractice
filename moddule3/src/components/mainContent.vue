@@ -52,6 +52,13 @@ import {list} from '../assets/js/for'
 
 import { clickEvent } from '../assets/js/ven'
 
+/**
+ * Declaring Reactive State
+ */
+import { ref } from 'vue';
+const count = ref(0)
+const isCon = false
+
 </script>
 
 <template>
@@ -88,6 +95,8 @@ import { clickEvent } from '../assets/js/ven'
     <div class="col-sm-8">
       <h2>TITLE HEADING</h2>
       <h5>Title description, Dec 7, 2020</h5>
+      <button v-if="isCon" class="btn btn-primary" @click="count++">{{ count }}</button>
+      <button v-else class="btn btn-danger" @click="count++">{{ count }}</button>
       <div class="fakeimg">Fake Image</div>
       <p>Some text..</p>
       <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
