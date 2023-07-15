@@ -57,7 +57,21 @@ import { clickEvent } from '../assets/js/ven'
  */
 import { ref } from 'vue';
 const count = ref(0)
-const isCon = false
+const isCon = ref(false)
+
+/**
+ * class and style binding
+ * 
+ */
+
+ import { computed } from 'vue'
+const isActive = ref(true)
+const hasError = ref(null)
+
+const classObject = computed(() => ({
+  active: isActive.value && !hasError.value,
+  'text-danger': hasError.value && hasError.value.type === 'fatal'
+}))
 
 </script>
 
@@ -66,8 +80,8 @@ const isCon = false
 <div class="container mt-5" v-bind="container">
   <div class="row">
     <div class="col-sm-4">
-      <h2>About Me</h2>
-      <h5>Photo of me:</h5>
+      <h2 :class="{active:isActive, 'text-danger':hasError}">About Me</h2>
+      <h5 :class="classObject">Photo of me:</h5>
       <div class="fakeimg">Fake Image</div>
       <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
       <h3 class="mt-4">Some Links</h3>
