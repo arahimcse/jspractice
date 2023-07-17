@@ -73,11 +73,54 @@ const classObject = computed(() => ({
   'text-danger': hasError.value && hasError.value.type === 'fatal'
 }))
 
+/**
+ * v-model and logic test
+ */
+
+const userData = ref('a')
+
+/**
+ * list rendering
+ * ref() work in premetive data type such as numbers, string, boolean, etc
+ */
+ const parentMessage = ref('Parent')
+const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
+
+
+/**
+ * object type data object, arry, list of data, etc work on reactivity()
+ */
+import { reactive } from 'vue';
+ const myObject = reactive({
+  title: 'How to do lists in Vue',
+  author: 'Jane Doe',
+  publishedAt: '2016-04-10'
+})
+
+/**
+ * Displaying Filtered/Sorted Results
+ */
+ const numbers = ref([1, 2, 3, 4, 5])
+
+const evenNumbers = computed(() => {
+  return numbers.value.filter((n) => n % 2 === 0)
+})
+
+/**
+ * 
+ */
+ const sets = ref([
+  [1, 2, 3, 4, 5],
+  [6, 7, 8, 9, 10]
+])
+const even = (numbers)=> numbers.filter((number) => number % 2 === 0)
+
+
 </script>
 
 <template>
 
-<div class="container mt-5" v-bind="container">
+<div class="container mt-5">
   <div class="row">
     <div class="col-sm-4">
       <h2 :class="{active:isActive, 'text-danger':hasError}">About Me</h2>
@@ -123,6 +166,68 @@ const classObject = computed(() => ({
     </div>
   </div>
 </div>
+
+
+<!-- the v-model and logic test -->
+<div class="container">
+  <div class="row">
+    <h6>Logic and v-model practice</h6>
+    <p>
+      <ul> 
+  <li v-if="'h' == userData"><a href="#">Home</a></li>
+  <li v-if="'a' == userData"><a href="#">about</a></li>
+  <li v-if="'p' == userData"><a href="#">phone</a></li>
+  <li v-if="'c' == userData"><a href="#">contact</a></li>
+  <li v-if="'v' == userData"><a href="#">Village</a></li>
+</ul>
+    </p>
+    
+    <p>
+      <input class=" form-control" type="text" v-model="userData" placeholder="inter data">
+    </p>
+  </div>
+</div>
+
+
+<!-- list rendering -->
+<div class="container">
+  <div class="row">
+  <h2>list rendering by ref()</h2>
+      <li v-for="(item, index) in items">
+  {{ parentMessage }} - {{ index }} - {{ item.message }}
+</li>
+  </div>
+</div>
+
+<!-- example for object data -->
+
+<div class="container">
+  <div class="row">
+    <h2>list rendering by object and object management model reactive()</h2>
+    <li v-for="(value, key, index) in myObject">
+  {{ index }}. {{ key }}: {{ value }}
+</li>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <h3>Displaying Filtered/Sorted Results</h3>
+    <li v-for="n in evenNumbers">{{ n }}</li>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h3>Displaying Filtered/Sorted Results . These two methods will mutate the original array</h3>
+    <ul v-for="numbers in sets">
+  <li v-for="n in even(numbers)">{{ n }}</li>
+</ul>
+  </div>
+</div>
+
+
 </template>
 
 
