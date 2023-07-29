@@ -16,7 +16,6 @@ const tabs ={
     <button class="tab-button" v-for="(_, tab) in tabs" :key="tab" :class="{ active: currentTab === tab }"
       @click="currentTab=tab">{{ tab }}</button>
     <component :is="tabs[currentTab]" class="tab">abdur rahim</component>
-    {{ tabs[currentTab] }}
   </div>
 </template>
 
