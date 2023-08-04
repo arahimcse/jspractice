@@ -1,16 +1,18 @@
 <script>
-export default {
-  setup() {
-    const message = "this is abdur rahim"
-    function date(){return 'this'} 
-    const person = {firstName:"abdur", lastName:"rahim", getFullName(){return this.firstName + this.lastName}}
+import CoAPI from './components/coAPI.vue'
 
-    return {
-      message,
-      date,
-      person,
-    };
-  }
+export default {
+    setup() {
+        const message = "this is abdur rahim";
+        function date() { return 'this'; }
+        const person = { firstName: "abdur", lastName: "rahim", getFullName() { return this.firstName + this.lastName; } };
+        return {
+            message,
+            date,
+            person,
+        };
+    },
+    components: { CoAPI }
 }
 </script>
 
@@ -50,6 +52,17 @@ export default{
   </header>
 
   <RouterView />
+
+
+
+
+
+
+
+
+
+  <h3>This is abdur rahim</h3> 
+  <CoAPI/>
 </template>
 
 <style scoped>
